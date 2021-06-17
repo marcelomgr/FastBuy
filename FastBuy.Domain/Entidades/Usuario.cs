@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace FastBuy.Domain
 {
-    public abstract class Usuario
+    public class Usuario : Entidade
     {
         public int Id { get; set; }
         public string Email { get; set; }
@@ -12,5 +12,10 @@ namespace FastBuy.Domain
         public string Nome { get; set; }
         public string SobreNome { get; set; }
         public ICollection<Pedido> Pedidos { get; set; }
+
+        public override void Validate()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
