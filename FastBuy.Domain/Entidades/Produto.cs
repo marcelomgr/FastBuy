@@ -13,7 +13,14 @@ namespace FastBuy.Domain.Entidades
 
         public override void Validate()
         {
-            throw new NotImplementedException();
+            if (string.IsNullOrEmpty(Nome))
+                AdicionarCritica("Crítica: Nome não informado.");
+
+            if (string.IsNullOrEmpty(Descricao))
+                AdicionarCritica("Crítica: Descrição não informada.");
+
+            if (Preco == 0)
+                AdicionarCritica("Crítica: Preço não informado.");
         }
     }
 }

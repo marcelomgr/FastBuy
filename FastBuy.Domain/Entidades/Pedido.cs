@@ -10,6 +10,7 @@ namespace FastBuy.Domain.Entidades
         public int Id { get; set; }
         public DateTime DataPedido { get; set; }
         public int UsuarioId { get; set; }
+        public virtual Usuario Usuario { get; set; }
         public DateTime DataPrevisaoEntrega { get; set; }
         public string CEP { get; set; }
         public string Estado { get; set; }
@@ -30,6 +31,9 @@ namespace FastBuy.Domain.Entidades
 
             if (string.IsNullOrEmpty(CEP))
                 AdicionarCritica("Crítica: CEP deve ser preenchido.");
+
+            if (FormaPagamentoId == 0)
+                AdicionarCritica("Crítica: Forma de pagamento não informada.");
         }
     }
 }

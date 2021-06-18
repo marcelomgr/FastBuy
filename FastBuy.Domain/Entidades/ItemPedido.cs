@@ -8,11 +8,15 @@ namespace FastBuy.Domain.Entidades
     {
         public int Id { get; set; }
         public int ProdutoId { get; set; }
-        public int Quantidada { get; set; }
+        public int Quantidade { get; set; }
 
         public override void Validate()
         {
-            throw new NotImplementedException();
+            if (ProdutoId == 0)
+                AdicionarCritica("Crítica: Produto não identificado.");
+
+            if (Quantidade == 0)
+                AdicionarCritica("Crítica: Quantidade não informada.");
         }
     }
 }
